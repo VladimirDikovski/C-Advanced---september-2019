@@ -11,6 +11,7 @@ namespace MatrixMultiplication
          
             int[,] matrixi1 = new int[3, 3];
             int[,] matrixi2 = new int[3, 3];
+           
             Console.WriteLine("Input Element of the first Matrix ");
             matrixi1 = InputElementsInMatrix(matrixi1);
             Console.WriteLine();
@@ -27,17 +28,22 @@ namespace MatrixMultiplication
 
         private static void MatrixMultiplication(int[,] matrixi1, int[,] matrixi2)
         {
-            int result = 0;
+            int[,] resultMatrix = new int[3, 3];
+           
             for (int rol = 0; rol < matrixi1.GetLength(0); rol++)
             {
                 for (int col = 0; col < matrixi2.GetLength(1); col++)
                 {
-                    result += matrixi1[col, rol] * matrixi2[rol, col];
+                    resultMatrix[rol,col] = matrixi1[rol,col] * matrixi2[col, rol];
+                   
                 }
             }
             Console.WriteLine();
-            Console.WriteLine($"Result of multiplication of matrix is {result}");
+            Console.WriteLine($"Result of multiplication of matrix is");
+            PrintMaxtrix(resultMatrix);
         }
+
+      
 
         private static void PrintMaxtrix(int[,] matrix)
         {
