@@ -14,7 +14,7 @@ namespace CarManufacturer
 
         public void Drive(double distance)
         {
-            double expenceFuel = this.FuelQuantity * distance / 100;
+            double expenceFuel = this.FuelConsumption * distance / 100;
             if (expenceFuel>this.FuelQuantity)
             {
                throw new ArgumentException("Not enough fuel to perform this trip!");
