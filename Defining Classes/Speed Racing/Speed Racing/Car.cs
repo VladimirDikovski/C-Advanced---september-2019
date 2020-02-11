@@ -23,9 +23,19 @@ namespace Speed_Racing
 
         }
     
-        public void Drive(Car carsModel)
+        public void Drive(string model, double amountKm)
         {
 
+            double neededLitres = amountKm * this.FuelConsumptionPerKilometer;
+            if (this.FuelAmount >= neededLitres)
+            {
+                this.FuelAmount -= neededLitres;
+                this.Travelleddistance += amountKm;
+            }
+            else
+            {
+                Console.WriteLine("Insufficient fuel for the drive");
+            }
         }
     }
 }

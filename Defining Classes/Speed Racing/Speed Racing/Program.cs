@@ -18,7 +18,6 @@ namespace Speed_Racing
                 double fuelConsumptionFor1km = double.Parse(input[2]);
                 var car =new Car(model, fuelamaount, fuelConsumptionFor1km);
                 cars.Add(car);
-
             }
             while (true)
             {
@@ -28,17 +27,18 @@ namespace Speed_Racing
                     break;
                 }
                 string[] splitetInput = inputSecond.Split();
-                string type = splitetInput[0];
                 string driveModel = splitetInput[1];
-                double distanceTraveled = double.Parse(splitetInput[2]);
-                if(type=="Drive")
-                {
+                double amountKm = double.Parse(splitetInput[2]);
 
-                }
-                Car newcar = new Car();
+                Car carForDriving = cars.Where(x => x.Model == driveModel).ToList().First();
+
+                carForDriving.Drive(driveModel, amountKm);
                 
-             
-              
+
+            }
+            foreach (var item in cars)
+            {
+                Console.WriteLine($"{ item.Model} { item.FuelAmount:F2} {item.Travelleddistance}");
             }
         }
     }
